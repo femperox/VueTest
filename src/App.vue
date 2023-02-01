@@ -1,30 +1,84 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+<div class="app">
+    
+    
+    <div class="Site">
+
+      <menu-comp></menu-comp>
+
+      <div class="Base"><router-view></router-view></div>
+    
+    </div>
+    
+    
+    
+   
+</div>
+
+
 </template>
 
+<script>
+
+export default
+{
+
+  data() 
+  {
+    return {
+              listFunc : [{url:"https://www.google.com/", name:"Google"},
+                          {url:"https://www.dzen.ru", name:"Yandex"}
+                        ],
+              listAdmin : [{url:"https://www.google.com/", name:"Google", icn: "icns/star_red.png"},
+                          {url:"https://www.dzen.ru", name:"Yandex", icn: "icns/star_black.png"}
+                        ]
+            }
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+body
+{
+  margin: 0;
+}
+
+.Site
+{
+  display: flex;
+  height: 1000px;
+  padding-top: 0;
+
+}
+
+
+
+.Base
+{
+  flex: 85%;
+  background: rgb(238, 199, 249);
+  margin-bottom: auto;
+  margin: 0;
+  border: 5px solid white;
+  
+}
+
+.Groups, .Admins
+{
+  padding-top: 4%;
+  box-shadow:
+       inset 0.3em 0.3em 1em rgba(0,0,0,0.3); 
   text-align: center;
-  color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.Functions
+{
+  padding-top: 30px;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+
+
+
 </style>
