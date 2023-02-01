@@ -7,7 +7,9 @@
                 >
                 
                 <icn v-if="l.icn" class="Icns" :url="l.icn"></icn>
-                <a :href="l.url" >{{ l.name }}</a>
+                <a :href="l.url" v-if="l.url.includes('http')" >{{ l.name }}</a>
+                <router-link v-else :to="l.url">{{ l.name }}</router-link>
+               
         </div>
     </div>
 </template>
