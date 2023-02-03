@@ -28,4 +28,9 @@ export default { name: "cstm-inp",
     padding: 10px 10px;
     margin-top: 5px;
 }
+
+.input:focus {
+	border: 1px solid rgb(160, 220, 221);
+    outline: none;
+}
 </style>
