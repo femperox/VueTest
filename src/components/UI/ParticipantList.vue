@@ -3,13 +3,13 @@
         <tr class="Table">
             <td v-for="col in Object.keys(prtcp[0])"><cstm-inp class="Header" readonly="true" type="text" :placeholder="col"></cstm-inp> </td>
         </tr>    
-        <tr v-if="checkLen(prtcp)" class="Table" v-for="p in prtcp" :key="p">
-            <td  v-for="col in Object.keys(p)" ><cstm-inp class="Cell" type="text" :value="p[col]"></cstm-inp> </td>
+        <tr class="Table" v-for="p in prtcp" :key="p">
+            <td v-for="col in Object.keys(p)" ><cstm-inp class="Cell" type="text" :value="p[col]"></cstm-inp> </td>
             <td><cstm-btn @click="deletePost(p)"  class="Delete">x</cstm-btn></td>
         </tr>
         
         <tr class="Table">
-            <td v-for="col in Object.keys(prtcp[0])"><cstm-inp :name="col" class="Cell" type="text" @input="addRow"></cstm-inp> </td>
+            <td v-for="col in Object.keys(prtcp[0])"><cstm-inp :name="col" class="Cell" type="text" @change="addRow"></cstm-inp> </td>
         </tr>  
     </div>
 </template>
@@ -22,7 +22,7 @@
 
     data() 
     {
-        return { validated: 0,
+        return { visible: true,
                }
     }, 
 
@@ -59,6 +59,7 @@
             this.$emit("deleteRow", p);   
         },
 
+        // возможно потом доработать вывод 0 актуальных строк
         checkLen(pList)
         {
             let res = true;
@@ -70,8 +71,9 @@
         }
     },
 
-    watch:
+    updated()
     {
+       
     }
 
         
