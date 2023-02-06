@@ -62,7 +62,23 @@
     height: 250px;
     width: 240px;
     border: 3px solid rgb(211, 181, 239);
+    overflow-y: auto;  
+    padding-right: 0px; 
+    margin-right: 0px;
     
+}
+
+.Status::-webkit-scrollbar {
+  width: 10px;               /* width of the entire scrollbar */
+
+}
+
+.Status::-webkit-scrollbar-thumb {
+  background-color: rgb(181, 191, 239);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 2px solid rgb(145, 155, 207);  /* creates padding around scroll thumb */
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .StatusHeader
@@ -81,6 +97,11 @@
     height: 20px;
     margin: 2px 2px 2px 2px;
     text-align: center;
+    display: inline-block;
+
+    transition-property:transform;
+    transition-duration: 200ms;
+    transition-timing-function:ease-in-out;
     
 }
 
