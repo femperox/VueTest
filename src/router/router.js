@@ -3,6 +3,7 @@ import Menu from '@/pages/Menu'
 import About from '@/pages/About'
 import LotSatus from '@/pages/LotStatus'
 import Bans from '@/pages/Bans'
+import Parcels from '@/pages/Parcels'
 
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -17,8 +18,11 @@ const routes = [
                   component: Bans
                 },
                 { path: '/',
-                component: About
-              },
+                  component: About
+                },
+                { path: '/parcels',
+                  component: Parcels
+                }
 
                 
 
