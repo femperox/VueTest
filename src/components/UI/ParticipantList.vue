@@ -4,7 +4,7 @@
             <td v-for="col in Object.keys(prtcp[0])"><cstm-inp class="Header" readonly="true" type="text" :placeholder="col"></cstm-inp> </td>
         </tr>    
         <tr class="Table" v-for="p in prtcp" :key="p">
-            <td v-for="col in Object.keys(p)" ><cstm-inp class="Cell" type="text" :value="p[col]"></cstm-inp> </td>
+            <td v-for="col in Object.keys(p)" ><cstm-inp class="Cell" type="text" :value="p[col]" @input="getInput" :id="prtcp.indexOf(p)" :name="col"></cstm-inp> </td>
             <td><cstm-btn @click="deletePost(p)"  class="Delete">x</cstm-btn></td>
         </tr>
         
@@ -23,6 +23,7 @@
     data() 
     {
         return { visible: true,
+                 
                }
     }, 
 
@@ -31,7 +32,11 @@
         prtcp: 
         { type: Array,
         
-        }
+        },
+        inputs: 
+        { type: Array,
+        
+        },
     },
 
     methods:
@@ -68,6 +73,12 @@
                 
             console.log(res);
             return res;
+        },
+
+        getInput(event)
+        {
+            let p = [event.target.id, event.target.name, event.target.value];
+            this.$emit("updateRow", p);   
         }
     },
 
