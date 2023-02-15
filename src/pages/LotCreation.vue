@@ -3,7 +3,7 @@
         Создание лота
         
         <small class="Small">Выберите лист</small>
-        <cstm_drpm id="drp" v-model="selectList[0]" :optionList="selectList" style="width:10%"></cstm_drpm>
+        <cstm_drpm id="drp" v-model="targetselection" :optionList="selectList" style="width:10%"></cstm_drpm>
 
         <small class="Small">Вставьте ссылку на лот</small>
         <cstm-inp v-model="siteUrl" placeholder="Ссылка на лот" style="width:30%"></cstm-inp>
@@ -24,7 +24,9 @@
         <cstm-inp type="number" v-model="posCount" placeholder="Количество позициий в лоте" style="width:5%"></cstm-inp>
 
         <small class="Small">Отредактируйте, если нужно, список участников и их позициий</small>
-        <prt-lst :prtcp="participantlist" @addRow="addRow" @deleteRow="deleteRow"></prt-lst>
+        <prt-lst :prtcp="participantlist" @addRow="addRow" @deleteRow="deleteRow" @updateRow="updateRow"></prt-lst>
+
+        <cstm-btn class="AddBtn" @click="submit">Добавить лот</cstm-btn>
 
     </div>
 </template>
@@ -34,6 +36,7 @@ export default {
     data() 
     {
         return {   selectList: ['Лоты', 'Инды', 'Тест'],
+                   targetselection: 'Лоты',
                    imgSelection: '',
                    imgUrl: '',
                    siteUrl: '',
@@ -75,6 +78,20 @@ export default {
             } 
                                           
  
+        },
+
+        updateRow(r)
+        {   
+            this.participantlist[r[0]][r[1]] = r[2];
+        },
+
+        submit()
+        {   console.log("Target: ", this.targetselection)
+            console.log("URL: ", this.siteUrl);
+            console.log("VK: ", this.vkUrl);
+            console.log("IMG:", this.imgSelection)
+            console.log("Pos num: ", this.posCount);
+            console.log(this.participantlist)
         }
     }
 
@@ -108,4 +125,10 @@ export default {
     padding-top: 20px;
 }
 
+.AddBtn
+{
+    margin-top: 20px;
+    width: fit-content;
+    padding: 10px;
+}
 </style>
