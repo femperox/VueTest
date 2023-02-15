@@ -57,7 +57,7 @@ body
 .Base
 {
   flex: 85%;
-  background: rgb(238, 199, 249);
+  background: rgb(251, 239, 255);
   margin-bottom: auto;
   margin: 0;
   border: 5px solid white;

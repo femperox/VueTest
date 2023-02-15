@@ -31,7 +31,8 @@ export default
               listFunc : [{url:"/", name:"О сервисе"},
                           {url:"/create", name:"Создать лот"},
                           {url:"/status", name:"Статусы лотов"},
-                          {url:"/bans", name:"Зачистки"}
+                          {url:"/bans", name:"Зачистки"},
+                          {url:"/parcels", name:"Отправки"}
                         ],
               listAdmin : [{url:"https://www.google.com/", name:"Google", icn: "icns/star_red.png"},
                           {url:"https://www.dzen.ru", name:"Yandex", icn: "icns/star_black.png"}
@@ -46,7 +47,7 @@ export default
 .Menu
 { 
   flex: 15%;
-  background: rgb(197, 249, 249);
+  background: rgb(233, 255, 255);
   align-items: stretch;
   margin: 0;
   border: 5px solid white;
